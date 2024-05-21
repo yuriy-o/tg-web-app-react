@@ -9,7 +9,7 @@ export function useTelegram() {
         if (tg.MainButton.isVisible) {
             tg.MainButton.hide();
         } else {
-            tg.MainButton.close();
+            tg.MainButton.show();
         }
     };
 
