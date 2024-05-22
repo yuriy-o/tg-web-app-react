@@ -16,7 +16,7 @@ const Form = () => {
         };
 
         tg.sendData(JSON.stringify(data));
-    }, []);
+    }, [country, street, subject, tg]);
 
     useEffect(() => {
         tg.onEvent('backButtonClicked', onSendData);
@@ -24,13 +24,13 @@ const Form = () => {
         return () => {
             tg.offEvent('backButtonClicked', onSendData);
         };
-    }, []);
+    }, [onSendData, tg]);
 
     useEffect(() => {
         tg.MainButton.setParams({
             text: 'Відправити дані',
         });
-    }, []);
+    }, [tg.MainButton]);
 
     useEffect(() => {
         if (!country || !street) {
@@ -38,7 +38,7 @@ const Form = () => {
         } else {
             tg.MainButton.show();
         }
-    }, [country, street]);
+    }, [country, street, tg.MainButton]);
 
     const onChangeCountry = e => {
         setCountry(e.target.value);
