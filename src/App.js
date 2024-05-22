@@ -5,8 +5,8 @@ import { useTelegram } from './hooks/useTelegram';
 import Header from './components/Header/Header';
 import ProductList from './components/ProductList/ProductList';
 import Form from './components/Form/Form';
+import Button from './components/Button/Button';
 import './App.css';
-import './components/Button/Button.css';
 
 function App() {
     const { tg, onToggleButton } = useTelegram();
@@ -22,9 +22,7 @@ function App() {
                 <Route index element={<ProductList />} />
                 <Route path={'form'} element={<Form />} />
             </Routes>
-            <button className={'button'} onClick={onToggleButton}>
-                Toggle
-            </button>
+            <Button onClick={onToggleButton}>Toggle</Button>
         </div>
     );
 }
