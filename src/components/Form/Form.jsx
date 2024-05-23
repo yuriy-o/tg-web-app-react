@@ -15,6 +15,7 @@ const Form = () => {
             subject,
         };
 
+        console.log('Sending data to Telegram:', data); // Додайте це повідомлення
         tg.sendData(JSON.stringify(data));
     }, [country, street, subject, tg]);
 
